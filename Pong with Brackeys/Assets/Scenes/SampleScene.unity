@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: moveDown
       value: 274
       objectReference: {fileID: 0}
+    - target: {fileID: 549620646825695179, guid: 0a04ee5c986362d45b94a67a8ab37129,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a04ee5c986362d45b94a67a8ab37129, type: 3}
 --- !u!4 &58883177 stripped
@@ -554,6 +559,7 @@ GameObject:
   - component: {fileID: 1371544097}
   - component: {fileID: 1371544096}
   - component: {fileID: 1371544099}
+  - component: {fileID: 1371544100}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -657,12 +663,24 @@ Rigidbody2D:
   m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 972262c5b43163647bd96ce9a4a86580, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1371544100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371544095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9050c0a22d89aa4b836afb6e69048b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1423532089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,6 +757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveDown
       value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 549620646825695179, guid: 0a04ee5c986362d45b94a67a8ab37129,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a04ee5c986362d45b94a67a8ab37129, type: 3}
