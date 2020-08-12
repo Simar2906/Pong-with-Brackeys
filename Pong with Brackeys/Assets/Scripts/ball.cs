@@ -6,6 +6,7 @@ public class ball : MonoBehaviour
 {
     private Rigidbody2D myRigidbody = null;
     public float ballSpeed = 100f;
+    public AudioSource click = null;
     IEnumerator Start()
     {
         yield return new WaitForSeconds(2f);
@@ -19,6 +20,8 @@ public class ball : MonoBehaviour
             Vector3 v = GetComponent<Rigidbody2D>().velocity;
             v.y = myRigidbody.velocity.y/2 + colInfo.collider.attachedRigidbody.velocity.y/3; // addes spin due to paddle
             GetComponent<Rigidbody2D>().velocity = v;
+            click.pitch = Random.Range(0.8f, 1.2f);
+            click.Play();
         }
     }
 
@@ -41,7 +44,7 @@ public class ball : MonoBehaviour
     {
         myRigidbody.velocity = new Vector2(0,0);
         myRigidbody.position = new Vector2(0,0);
-        
+
         yield return new WaitForSeconds(0.5f);
         goBall();
     }
