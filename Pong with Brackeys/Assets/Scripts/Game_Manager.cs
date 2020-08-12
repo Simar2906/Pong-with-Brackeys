@@ -14,7 +14,7 @@ public class Game_Manager : MonoBehaviour
         {
             playerScore01 += 1;
         }
-        else if(wallName == "left Wall")
+        else if(wallName == "leftWall")
         {
             playerScore02 += 1;
         }
