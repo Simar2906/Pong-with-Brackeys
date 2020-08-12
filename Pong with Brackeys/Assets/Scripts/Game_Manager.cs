@@ -26,7 +26,12 @@ public class Game_Manager : MonoBehaviour
     private void OnGUI() 
     {
         GUI.skin = theSkin;
-        GUI.Label(new Rect(Screen.width/2 - 150 -12, 25, 100, 100), "" + playerScore01);
-        GUI.Label(new Rect(Screen.width/2 + 150 -12, 25, 100, 100), "" + playerScore02);
+        GUI.Label(new Rect(Screen.width/2 - 150 -18, 25, 100, 100), "" + playerScore01);
+        GUI.Label(new Rect(Screen.width/2 + 150 -18, 25, 100, 100), "" + playerScore02);
+
+        if(GUI.Button(new Rect (Screen.width/2 -150/2, 35, 121, 53), "RESET"))
+        {
+
+        }
     }
 }

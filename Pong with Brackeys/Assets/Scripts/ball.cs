@@ -7,14 +7,15 @@ public class ball : MonoBehaviour
     private Rigidbody2D myRigidbody = null;
     public float ballSpeed = 100f;
     public AudioSource click = null;
+    private float xVel = 0f;
     IEnumerator Start()
     {
         yield return new WaitForSeconds(2f);
         myRigidbody = GetComponent<Rigidbody2D>();
         goBall();
     }
-
-    private void OnCollisionEnter2D(Collision2D colInfo) {
+    private void OnCollisionEnter2D(Collision2D colInfo)
+    {
         if(colInfo.collider.tag == "Player")
         {
             Vector3 v = GetComponent<Rigidbody2D>().velocity;
@@ -24,7 +25,22 @@ public class ball : MonoBehaviour
             click.Play();
         }
     }
-
+    private void Update()
+    {
+        myRigidbody = GetComponent<Rigidbody2D>();
+        xVel = myRigidbody.velocity.x;
+        if(xVel < 18 && xVel >-18 && xVel != 0)
+        {
+            if(xVel > 0)
+            {
+                xVel = 20;
+            }
+            else
+            {
+                xVel = -20;
+            }
+        }
+    }
     private void goBall()
     {
         float randomNumber = Random.Range(0, 2);
