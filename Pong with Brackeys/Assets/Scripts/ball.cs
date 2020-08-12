@@ -5,20 +5,12 @@ using UnityEngine;
 public class ball : MonoBehaviour
 {
     private Rigidbody2D myRigidbody = null;
-    void Start()
+    public float ballSpeed = 100f;
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(2f);
         myRigidbody = GetComponent<Rigidbody2D>();
-        float randomNumber = Random.Range(0, 2);
-        if(randomNumber <= 0.5)
-        {
-            Debug.Log("Shoot Right");
-            myRigidbody.AddForce(new Vector2(80, 10));
-        }
-        else
-        {
-            Debug.Log("Shoot Left");
-            myRigidbody.AddForce(new Vector2(-80, -10));
-        }
+        goBall();
     }
 
     private void OnCollisionEnter2D(Collision2D colInfo) {
@@ -28,5 +20,29 @@ public class ball : MonoBehaviour
             v.y = myRigidbody.velocity.y/2 + colInfo.collider.attachedRigidbody.velocity.y/3; // addes spin due to paddle
             GetComponent<Rigidbody2D>().velocity = v;
         }
+    }
+
+    private void goBall()
+    {
+        float randomNumber = Random.Range(0, 2);
+        if(randomNumber <= 0.5)
+        {
+            Debug.Log("Shoot Right");
+            myRigidbody.AddForce(new Vector2(ballSpeed, 10));
+        }
+        else
+        {
+            Debug.Log("Shoot Left");
+            myRigidbody.AddForce(new Vector2(-ballSpeed, -10));
+        }
+    }
+
+    IEnumerator ResetBall()
+    {
+        myRigidbody.velocity = new Vector2(0,0);
+        myRigidbody.position = new Vector2(0,0);
+        
+        yield return new WaitForSeconds(0.5f);
+        goBall();
     }
 }

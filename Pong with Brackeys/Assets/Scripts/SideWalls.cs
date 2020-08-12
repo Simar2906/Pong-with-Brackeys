@@ -9,6 +9,7 @@ public class SideWalls : MonoBehaviour
         if(hitInfo.name == "Ball")
         {
             Game_Manager.Score(transform.name);
+            hitInfo.gameObject.SendMessage("ResetBall");
         }
     }
 }
