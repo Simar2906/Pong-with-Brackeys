@@ -6,8 +6,12 @@ public class Game_Manager : MonoBehaviour
 {
     static int playerScore01 = 0;
     static int playerScore02 = 0;
-
+    private Transform theBall = null;
     public GUISkin theSkin = null;
+    private void Start() 
+    {
+        theBall = GameObject.FindGameObjectWithTag("Ball").transform;
+    }
     static public void Score(string wallName)
     {
         if(wallName == "rightWall")
@@ -31,7 +35,10 @@ public class Game_Manager : MonoBehaviour
 
         if(GUI.Button(new Rect (Screen.width/2 -150/2, 35, 121, 53), "RESET"))
         {
-
+            playerScore01 = 0;
+            playerScore02 = 0;
+            theBall.SendMessage("ResetBall");
         }
     }
+    
 }
